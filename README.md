@@ -12,5 +12,8 @@ wakeuponlan_ui.json
     "マシン名": "MACアドレス",  
     "マシン名": "MACアドレス",  
     "マシン名": "MACアドレス"  
-}  
+} 
+
+# 前提
+wakeonlan コマンド
 
