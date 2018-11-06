@@ -14,9 +14,10 @@ print(os.path.dirname(__file__)+"/wakeuponlan_ui.json")
 f=open(os.path.dirname(__file__)+"/wakeuponlan_ui.json","r")
 macaddr = json.load(f);
 
-
-def start(self):
-    subprocess.call(["wakeonlan",macaddr[self]])
+def callback_start(self):
+    def start():
+        subprocess.call(["wakeonlan",macaddr[self]])
+    return start
     
 root = tk.Tk()
 root.title("Wake up on LAN")
@@ -25,7 +26,7 @@ label = tk.Label(root, text="wake up on lan")
 label.grid()
 
 for machine in macaddr.keys():
-    button = tk.Button(root,text=machine, command=lambda: start(machine))
+    button = tk.Button(root,text=machine, command=callback_start(machine))
     button.grid()
 
 exit = tk.Button(root,text="exit", command=exitProg)
